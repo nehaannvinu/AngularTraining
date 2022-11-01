@@ -1,0 +1,23 @@
+<div class="display-screen">{{ display }}</div>
+
+<div class="numbers">
+  <div class="num 1" (click)="selectedNum(1)">1</div>
+  <div class="num 2" (click)="selectedNum(2)">2</div>
+  <div class="num 3" (click)="selectedNum(3)">3</div>
+  <div class="num 4" (click)="selectedNum(4)">4</div>
+  <div class="num 5" (click)="selectedNum(5)">5</div>
+  <div class="num 6" (click)="selectedNum(6)">6</div>
+  <div class="num 7" (click)="selectedNum(7)">7</div>
+  <div class="num 8" (click)="selectedNum(8)">8</div>
+  <div class="num 9" (click)="selectedNum(9)">9</div>
+  <div class="num 0" (click)="selectedNum(0)">0</div>
+</div>
+
+<div class="operations">
+  <div class="op add" (click)="selectedOperation('+')">+</div>
+  <div class="op sub" (click)="selectedOperation('-')">-</div>
+  <div class="op mul" (click)="selectedOperation('*')">X</div>
+  <div class="op div" (click)="selectedOperation('/')">/</div>
+  <div class="op eq" (click)="calculate()">=</div>
+  <div class="op clear" (click)="clear()">C</div>
+</div>

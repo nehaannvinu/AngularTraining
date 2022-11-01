@@ -1,0 +1,25 @@
+.display-screen {
+  border: 1px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.numbers {
+  display: grid;
+  width: fit-content;
+  border: 0.5px solid grey;
+  justify-items: center;
+  grid-template-columns: 33px 33px 33px;
+  grid-template-rows: 30px 30px 30px 30px;
+}
+
+.operations {
+  display: grid;
+  justify-items: center;
+  border: solid 0.5px grey;
+  width: fit-content;
+  grid-template-columns: 33px 33px 33px;
+  grid-template-rows: 30px 30px;
+}
