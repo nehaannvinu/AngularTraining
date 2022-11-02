@@ -1,0 +1,7 @@
+<div>Skill of child from parent (in child template): {{ skill }}</div>
+
+<label for="skill-input">Add an skill:</label>
+<input type="text" id="skill-input" #newSkill />
+<button type="button" (click)="addNewSkill(newSkill.value)">
+  Add to parent's list
+</button>
