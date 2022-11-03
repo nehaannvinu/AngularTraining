@@ -1,13 +1,8 @@
-<h1>{{ title }}</h1>
-<nav>
-  <button type="button" routerLink="/calc">
-    Open Calculator
-  </button>
-  <button type="button" (click)="goBack()">Back</button>
-</nav>
-<app-child [skill]="parentSkill" (newSkillEvent)="addSkill($event)"></app-child>
-<p>Inside parent's template</p>
-<ul>
-  <li *ngFor="let skill of skills">{{ skill }}</li>
-</ul>
+<mat-toolbar color="primary">
+  <a routerLink="/">Angular App</a>
+
+  <span class="options"></span>
+  <!-- <a routerLink="/calc">Calculator</a> -->
+  <button routerLink="/" (click)="logout()">Logout</button>
+</mat-toolbar>
 <router-outlet></router-outlet>

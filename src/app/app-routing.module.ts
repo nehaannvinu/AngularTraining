@@ -3,13 +3,11 @@ import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
   {
-    path: 'calc',
-    loadChildren: () => import('./calc/calc.module').then((m) => m.CalcModule),
-  },
-  {
     path: '',
-    redirectTo: '',
-    pathMatch: 'full',
+    loadChildren: () =>
+      import('./layout/calc-layout/calc-layout.module').then(
+        (m) => m.CalcLayoutModule,
+      ),
   },
 ]
 
