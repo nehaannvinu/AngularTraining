@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
+import { TodoListComponent } from './todo-list/todo-list.component'
+
 const routes: Routes = [
   {
     path: '',
@@ -9,6 +11,10 @@ const routes: Routes = [
         (m) => m.CalcLayoutModule,
       ),
   },
+  {
+    path: 'todo',
+    component: TodoListComponent
+  }
 ]
 
 @NgModule({

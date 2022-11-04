@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon'
 // import { ChildComponent } from './child/child.component';
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     RouterModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
