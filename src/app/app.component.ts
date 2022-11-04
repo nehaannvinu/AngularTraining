@@ -1,25 +1,21 @@
 import { Component } from '@angular/core'
-import { Location } from '@angular/common'
-
+import { AuthService } from './auth.service'
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  calcOn = true
-  title = 'Calculator'
-  parentSkill = 'Singing'
+  title = 'My App'
 
-  skills: string[] = []
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ){}
 
-  constructor(private location: Location) {}
-
-  addSkill(newSkill: string) {
-    this.skills.push(newSkill)
-  }
-
-  goBack() {
-    this.location.back()
+  logout() {
+    this.authService.logout()
+    this.router.navigateByUrl('/login')
   }
 }

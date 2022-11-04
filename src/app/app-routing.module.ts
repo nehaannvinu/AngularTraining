@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
+import { TodoListComponent } from './todo-list/todo-list.component'
+
 const routes: Routes = [
   {
-    path: 'calc',
-    loadChildren: () => import('./calc/calc.module').then((m) => m.CalcModule),
+    path: '',
+    loadChildren: () =>
+      import('./layout/calc-layout/calc-layout.module').then(
+        (m) => m.CalcLayoutModule,
+      ),
   },
   {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
+    path: 'todo',
+    component: TodoListComponent
+  }
 ]
 
 @NgModule({

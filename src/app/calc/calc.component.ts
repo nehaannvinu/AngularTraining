@@ -22,34 +22,38 @@ export class CalcComponent {
   }
 
   selectedOperation(operation: string) {
-    if (this.display != '' && this.firstValue == 0) {
+    if (operation == '.') {
+      this.display = `${this.display}${operation}`
+    } else if (this.display != '' && this.firstValue == 0) {
       this.firstValue = this.currentValue
       this.currentValue = 0
       this.display = ''
       this.action = operation
+    } else if (this.display != '' && this.firstValue != 0) {
+      this.calculate()
+      this.firstValue = parseFloat(this.display)
+      this.action = operation
+      this.currentValue = 0
+      this.display = ''
     }
   }
 
   calculate() {
-    if (this.action == '+' && this.firstValue != null) {
-      this.display = (this.currentValue + this.firstValue).toString()
-    }
-    if (
-      this.action == '-' &&
-      this.firstValue != null &&
-      this.currentValue > this.firstValue
-    ) {
-      this.display = (this.currentValue - this.firstValue).toString()
-    }
-    if (this.action == '*' && this.firstValue != null) {
-      this.display = (this.currentValue * this.firstValue).toString()
-    }
-    if (
-      this.action == '/' &&
-      this.firstValue != null &&
-      this.currentValue != 0
-    ) {
-      this.display = (this.currentValue / this.firstValue).toString()
+    if (this.firstValue != null) {
+      switch (this.action) {
+        case '+':
+          this.display = (this.currentValue + this.firstValue).toString()
+          break
+        case '-':
+          this.display = (this.firstValue - this.currentValue).toString()
+          break
+        case '*':
+          this.display = (this.currentValue * this.firstValue).toString()
+          break
+        case '/':
+          this.display = (this.firstValue / this.currentValue).toString()
+          break
+      }
     }
   }
 
@@ -57,5 +61,6 @@ export class CalcComponent {
     this.currentValue = 0
     this.firstValue = 0
     this.display = ''
+    this.action = null
   }
 }
