@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "myangularapp-408b8"
+  },
+  "targets": {
+    "myangularapp-408b8": {
+      "hosting": {
+        "calculator": [
+          "myangularapp-408b8"
+        ]
+      }
+    }
   }
 }
