@@ -10,6 +10,7 @@ export class CalcComponent {
   currentValue: number = 0
   firstValue: number | null = 0
   action: string | null = null
+  dotcount = false
 
   selectedNum(num: number) {
     if (this.display == '') {
@@ -22,19 +23,24 @@ export class CalcComponent {
   }
 
   selectedOperation(operation: string) {
-    if (operation == '.') {
+    if (operation == '.' && !this.dotcount) {
       this.display = `${this.display}${operation}`
+      this.dotcount = true
+    } else if (operation == '.' && this.dotcount) {
+      this.display = `${this.display}`
     } else if (this.display != '' && this.firstValue == 0) {
       this.firstValue = this.currentValue
       this.currentValue = 0
       this.display = ''
       this.action = operation
+      this.dotcount = false
     } else if (this.display != '' && this.firstValue != 0) {
       this.calculate()
       this.firstValue = parseFloat(this.display)
       this.action = operation
       this.currentValue = 0
       this.display = ''
+      this.dotcount = false
     }
   }
 
@@ -54,6 +60,7 @@ export class CalcComponent {
           this.display = (this.firstValue / this.currentValue).toString()
           break
       }
+      this.dotcount = false
     }
   }
 
@@ -62,5 +69,6 @@ export class CalcComponent {
     this.firstValue = 0
     this.display = ''
     this.action = null
+    this.dotcount = false
   }
 }

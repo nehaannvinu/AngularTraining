@@ -1,3 +1,8 @@
+body{
+  background-color: rgb(48, 48, 48) !important;
+  color: white;
+}
+
 .options {
   flex: 1 1 auto;
 }
@@ -5,7 +10,7 @@ a {
   color: white !important;
   text-decoration: none;
 }
-button {
+.nav-links {
   border: none !important;
   background-color: transparent !important;
   text-decoration: none !important;

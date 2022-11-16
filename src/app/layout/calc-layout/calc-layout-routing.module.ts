@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { AuthGuard } from 'src/app/auth.guard'
+import { AuthGuard } from 'src/app/shared/auth/auth.guard'
 import { CalcLayoutComponent } from './calc-layout.component'
 
 const routes: Routes = [
@@ -14,14 +14,14 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'login',
+        path: 'login', 
         loadChildren: () =>
-          import('../../auth/auth.module').then((m) => m.AuthModule),
+          import('../../shared/auth/auth.module').then((m) => m.AuthModule),
       },
       {
         path: 'calc',
         loadChildren: () =>
-          import('../../calc/calc.module').then((m) => m.CalcModule),
+          import('../../pages/calc/calc.module').then((m) => m.CalcModule),
         canActivate: [AuthGuard],
       },
     ],

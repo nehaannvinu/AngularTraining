@@ -1,0 +1,35 @@
+.task-input {
+  padding: 20px;
+}
+
+.task-box {
+  width: min-content;
+}
+
+.task {
+  width: max-content;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.delete-task-button {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.edit-task-button {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.task-input {
+  color: white;
+}
+
+.section-2{
+  padding: 10px;
+  margin: 20px;
+  border: solid 2px grey;
+  border-radius: 2px;
+  width: max-content;
+}

@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">
-  <mat-icon>gamepad</mat-icon>
   <a routerLink="/">First Angular App</a>
 
   <span class="options"></span>
-  <!-- <a routerLink="/calc">Calculator</a> -->
-  <button routerLink="/" (click)="logout()">Logout</button>
+  <button class="nav-links" routerLink="/register">Registration</button>
+  <button class="nav-links" routerLink="/calc">Calculator</button>
+  <button class="nav-links" routerLink="/todo">Todo</button>
+  <button class="nav-links" routerLink="/" (click)="logout()">Logout</button>
 </mat-toolbar>
 <router-outlet></router-outlet>
