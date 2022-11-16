@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
 
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 
@@ -15,9 +14,6 @@ import { first } from 'rxjs'
 export class TodoListComponent implements OnInit {
   item: string
   allTasks: Todo[] = []
-
-  // allTask2: any[] = []
-  // editOn: boolean = true
 
   constructor(private todoService: TodoService) {}
 
@@ -37,6 +33,7 @@ export class TodoListComponent implements OnInit {
           modified_on: new Date(),
         },
         status: false,
+        priority: this.allTasks.length + 1,
       }
 
       this.todoService
@@ -50,8 +47,17 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  onEditAction(x: any, i: number) {
-    this.allTasks[i].title = x.target.value
+  onEditAction(x: any, i: number, _id?: string) {
+    if (_id) {
+      const itemId = {
+        id: _id,
+        updated_task: x.target.value,
+      }
+      this.todoService.editTask(itemId).subscribe((response) => {
+        console.log()
+        this.allTasks[i].title = response.data.title
+      })
+    }
   }
 
   markDone(i: number) {
@@ -59,10 +65,18 @@ export class TodoListComponent implements OnInit {
     this.allTasks[i].status = !currentStatus
   }
 
-  deleteItem(i: number) {
-    this.allTasks.splice(i, 1)
+  deleteItem(i: number, _id?: string) {
+    if (_id) {
+      this.todoService.deleteTask(_id).subscribe((response) => {
+        if (response.status == 'SUCCESS') {
+          this.allTasks.splice(i, 1)
+        }
+      })
+    }
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.allTasks, event.previousIndex, event.currentIndex)
+    console.log('Event Item', event.previousIndex, '=====>', event.currentIndex)
+    console.log('Event Item', event.item.element.nativeElement)
   }
 }

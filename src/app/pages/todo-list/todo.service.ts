@@ -16,4 +16,15 @@ export class TodoService {
   public postTask(todo: Todo): Observable<any> {
     return this.httpClient.post('http://localhost:3000/addtask', todo)
   }
+
+  public editTask(id: Object): Observable<any> {
+    return this.httpClient.put('http://localhost:3000/updateTask', id)
+  }
+  public deleteTask(id: string): Observable<any> {
+    return this.httpClient.delete('http://localhost:3000/deleteTask', {
+      body: {
+        id,
+      },
+    })
+  }
 }

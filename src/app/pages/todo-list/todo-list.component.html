@@ -22,13 +22,13 @@
         <input
           matInput
           class="task-box"
-          (keyup.enter)="onEditAction($event, i)"
+          (keyup.enter)="onEditAction($event, i, task._id)"
           [(ngModel)]="task.title"
         />
         <button class="edit-task-button" (click)="markDone(i)">
           <mat-icon color="accent">done</mat-icon>
         </button>
-        <button class="delete-task-button" (click)="deleteItem(i)">
+        <button class="delete-task-button" (click)="deleteItem(i, task._id)">
           <mat-icon color="accent">close</mat-icon>
         </button>
       </mat-card>

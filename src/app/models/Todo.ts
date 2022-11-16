@@ -5,4 +5,6 @@ export class Todo {
         created_on: Date,
         modified_on: Date
     }
+    public _id?: string
+    public priority: number
 }
